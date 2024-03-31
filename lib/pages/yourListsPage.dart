@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'new_list_page.dart';
+import 'package:wishlist_app/widgets/newList.dart';
 
 class YourListsPage extends StatelessWidget {
   @override
@@ -9,7 +9,7 @@ class YourListsPage extends StatelessWidget {
         title: Text('Your Lists'),
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 16.0), // Adjust the right padding as needed
+            padding: EdgeInsets.only(right: 16.0),
             child: IconButton(
               icon: Icon(Icons.add),
               onPressed: () {

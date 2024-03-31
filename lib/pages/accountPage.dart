@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'managers/theme_manager.dart';
+import 'package:wishlist_app/managers/themeManager.dart';
 
 class AccountSettingsPage extends StatefulWidget {
   final ThemeManager themeManager;
@@ -34,7 +34,7 @@ class _AccountSettingsPageState extends State<AccountSettingsPage> {
           ),
           ListTile(
             title: Text('View Email'),
-            subtitle: Text(userEmail), // Display user's email dynamically
+            subtitle: Text(userEmail),
             onTap: () {
               // Implement functionality to view email
             },

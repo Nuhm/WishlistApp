@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'new_list_page.dart';
+import 'package:wishlist_app/widgets/newList.dart';
 
 class HomePage extends StatelessWidget {
   @override

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
-import 'your_lists_page.dart';
-import 'others_lists_page.dart';
-import 'history_page.dart';
-import 'account_page.dart';
-import 'managers/theme_manager.dart';
+import 'pages/homePage.dart';
+import 'pages/yourListsPage.dart';
+import 'pages/othersListsPage.dart';
+import 'pages/historyPage.dart';
+import 'pages/accountPage.dart';
+import 'managers/themeManager.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       YourListsPage(),
       OthersListsPage(),
       HistoryPage(),
-      AccountSettingsPage(themeManager: themeManager), // Provide themeManager here
+      AccountSettingsPage(themeManager: themeManager),
     ];
   }
 
