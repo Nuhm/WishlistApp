@@ -37,11 +37,13 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Your App',
       theme: themeManager.themeData,
       home: Scaffold(
         body: _pages[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
           items: [
@@ -63,9 +65,17 @@ class _MyAppState extends State<MyApp> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),
-              label: 'Account/Settings',
+              label: 'Settings',
             ),
           ],
+          selectedItemColor: Colors.blue,
+          unselectedItemColor: Colors.grey,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+          selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+          unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
+          selectedFontSize: 14.0,
+          unselectedFontSize: 14.0,
         ),
       ),
     );

@@ -12,24 +12,29 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
+            Text(
               'Welcome to the Home Page!',
-              style: const TextStyle(fontSize: 24),
+              style: TextStyle(fontSize: 24),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Navigate to NewListPage to create a new list
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => NewListPage()),
-                );
+                _showCreateListBottomSheet(context);
               },
-              child: const Text('Create New List'),
+              child: Text('Create New List'),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  void _showCreateListBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return NewListPage(); // Display NewListPage as the bottom sheet
+      },
     );
   }
 }

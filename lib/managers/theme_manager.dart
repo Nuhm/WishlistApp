@@ -6,14 +6,24 @@ class ThemeManager extends ChangeNotifier {
   ThemeData _themeData = _lightTheme;
   ThemeType _currentTheme = ThemeType.light;
 
+  static final ColorScheme _lightColorScheme = ColorScheme.light(
+    primary: Colors.blue,
+    secondary: Colors.red,
+  );
+
+  static final ColorScheme _darkColorScheme = ColorScheme.dark(
+    primary: Colors.blue,
+    secondary: Colors.red,
+  );
+
   static final ThemeData _lightTheme = ThemeData(
     brightness: Brightness.light,
-    // Define your light theme properties here
+    colorScheme: _lightColorScheme,
   );
 
   static final ThemeData _darkTheme = ThemeData(
     brightness: Brightness.dark,
-    // Define your dark theme properties here
+    colorScheme: _darkColorScheme,
   );
 
   ThemeData get themeData => _themeData;

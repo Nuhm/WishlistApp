@@ -21,7 +21,7 @@ class _AccountSettingsPageState extends State<AccountSettingsPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Account / Settings'),
+        title: Text('Settings'),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0),
