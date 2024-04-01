@@ -7,6 +7,8 @@ class NewListPage extends StatelessWidget {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
 
+  NewListPage({super.key});
+
   // Validation method to create the list
   void _createList(context) {
     String title = _titleController.text.trim();
@@ -19,12 +21,12 @@ class NewListPage extends StatelessWidget {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Error'),
-            content: Text('List name cannot be empty.'),
+            title: const Text('Error'),
+            content: const Text('List name cannot be empty.'),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           );
@@ -36,12 +38,12 @@ class NewListPage extends StatelessWidget {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Error'),
-            content: Text('List name cannot contain special characters.'),
+            title: const Text('Error'),
+            content: const Text('List name cannot contain special characters.'),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           );
@@ -68,37 +70,37 @@ class NewListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text(
+          const Text(
             'Create a new list',
             style: TextStyle(fontSize: 18),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           TextFormField(
             controller: _titleController,
-            decoration: InputDecoration(labelText: 'List name'),
+            decoration: const InputDecoration(labelText: 'List name'),
           ),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
           TextFormField(
             controller: _descriptionController,
-            decoration: InputDecoration(labelText: 'List description'),
+            decoration: const InputDecoration(labelText: 'List description'),
           ),
-          SizedBox(height: 20.0),
-          Text(
+          const SizedBox(height: 20.0),
+          const Text(
             'Create a new list to group different wanted items.',
             style: TextStyle(fontSize: 14),
           ),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
           ElevatedButton(
-            onPressed: () => _createList(context), // Pass a function reference
-            child: Text('Create List'),
+            onPressed: () => _createList(context),
             style: ElevatedButton.styleFrom(
-              minimumSize: Size(double.infinity, kMinInteractiveDimension),
-            ),
+              minimumSize: const Size(double.infinity, kMinInteractiveDimension),
+            ), // Pass a function reference
+            child: const Text('Create List'),
           ),
         ],
       ),

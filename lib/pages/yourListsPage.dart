@@ -6,6 +6,8 @@ import 'package:wishlist_app/models/wishlist.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class YourListsPage extends StatefulWidget {
+  const YourListsPage({super.key});
+
   @override
   _YourListsPageState createState() => _YourListsPageState();
 }
@@ -24,18 +26,13 @@ class _YourListsPageState extends State<YourListsPage> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String>? jsonStringList = prefs.getStringList('wishlists');
     print(jsonStringList);
-    if (jsonStringList != null) {
-      List<Wishlist> wishlists = jsonStringList
-          .map((jsonString) => Wishlist.fromJson(json.decode(jsonString)))
-          .toList();
-      setState(() {
-        _wishlists = wishlists;
-      });
-    } else {
-      // Handle the case where the JSON string list is null
-      // For example, you can show a message or set a default value for _wishlists
+    List<Wishlist> wishlists = jsonStringList
+        .map((jsonString) => Wishlist.fromJson(json.decode(jsonString)))
+        .toList();
+    setState(() {
+      _wishlists = wishlists;
+    });
     }
-  }
 
   // Method to parse JSON string to Wishlist objects
   List<Wishlist> _parseWishlists(String jsonString) {
@@ -49,12 +46,12 @@ class _YourListsPageState extends State<YourListsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Lists'),
+        title: const Text('Your Lists'),
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 16.0),
+            padding: const EdgeInsets.only(right: 16.0),
             child: IconButton(
-              icon: Icon(Icons.add),
+              icon: const Icon(Icons.add),
               onPressed: () {
                 _showCreateListBottomSheet(context);
               },

@@ -4,7 +4,7 @@ import 'package:wishlist_app/models/wishlist.dart';
 class WishlistPage extends StatelessWidget {
   final Wishlist wishlist;
 
-  WishlistPage({required this.wishlist});
+  const WishlistPage({super.key, required this.wishlist});
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +17,18 @@ class WishlistPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Description:',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(wishlist.description),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Items:',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Expanded(
               child: ListView.builder(
                 itemCount: wishlist.items.length,

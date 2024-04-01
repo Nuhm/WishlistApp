@@ -7,10 +7,12 @@ import 'pages/accountPage.dart';
 import 'managers/themeManager.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -26,10 +28,10 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     _pages = [
-      HomePage(),
-      YourListsPage(),
-      OthersListsPage(),
-      HistoryPage(),
+      const HomePage(),
+      const YourListsPage(),
+      const OthersListsPage(),
+      const HistoryPage(),
       AccountSettingsPage(themeManager: themeManager),
     ];
   }
@@ -46,7 +48,7 @@ class _MyAppState extends State<MyApp> {
           type: BottomNavigationBarType.fixed,
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Home',
@@ -72,8 +74,8 @@ class _MyAppState extends State<MyApp> {
           unselectedItemColor: Colors.grey,
           showSelectedLabels: true,
           showUnselectedLabels: true,
-          selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-          unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
+          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+          unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.normal),
           selectedFontSize: 14.0,
           unselectedFontSize: 14.0,
         ),
