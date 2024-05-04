@@ -115,7 +115,6 @@ class _YourListsPageState extends State<YourListsPage> {
   void _showCreateListBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      isScrollControlled: true, // Set to true to allow scrolling
       builder: (BuildContext context) {
         return NewListPage();
       },
