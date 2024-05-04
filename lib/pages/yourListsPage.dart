@@ -25,6 +25,7 @@ class _YourListsPageState extends State<YourListsPage> {
   void _loadWishlists() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String>? jsonStringList = prefs.getStringList('wishlists');
+    if (jsonStringList == null) return;
     print(jsonStringList);
     List<Wishlist> wishlists = jsonStringList
         .map((jsonString) => Wishlist.fromJson(json.decode(jsonString)))
@@ -84,6 +85,7 @@ class _YourListsPageState extends State<YourListsPage> {
   void _showCreateListBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true, // Set to true to allow scrolling
       builder: (BuildContext context) {
         return NewListPage();
       },

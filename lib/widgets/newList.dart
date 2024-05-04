@@ -3,14 +3,14 @@ import 'package:wishlist_app/models/wishlist.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class NewListPage extends StatelessWidget {
+class NewListPage extends StatefulWidget {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
 
-  NewListPage({super.key});
+  NewListPage({Key? key}) : super(key: key);
 
   // Validation method to create the list
-  void _createList(context) {
+  void _createList(BuildContext context) {
     String title = _titleController.text.trim();
     String description = _descriptionController.text.trim();
     RegExp regExp = RegExp(r'[^\w\s]+');
@@ -68,12 +68,19 @@ class NewListPage extends StatelessWidget {
   }
 
   @override
+  _NewListPageState createState() => _NewListPageState();
+}
+
+class _NewListPageState extends State<NewListPage> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
+    return Scaffold(
+      resizeToAvoidBottomInset: true, // Set this to true
+      appBar: AppBar(
+        title: const Text('Create a new list'),
+      ),
+      body: ListView( // Use ListView instead of SingleChildScrollView
+        padding: const EdgeInsets.all(20.0),
         children: <Widget>[
           const Text(
             'Create a new list',
@@ -81,13 +88,15 @@ class NewListPage extends StatelessWidget {
           ),
           const SizedBox(height: 10.0),
           TextFormField(
-            controller: _titleController,
+            controller: widget._titleController,
             decoration: const InputDecoration(labelText: 'List name'),
+            onEditingComplete: () => FocusScope.of(context).nextFocus(), // Move focus to the next focusable widget
           ),
           const SizedBox(height: 20.0),
           TextFormField(
-            controller: _descriptionController,
+            controller: widget._descriptionController,
             decoration: const InputDecoration(labelText: 'List description'),
+            onEditingComplete: () => widget._createList(context), // Call _createList method when editing is complete
           ),
           const SizedBox(height: 20.0),
           const Text(
@@ -96,7 +105,7 @@ class NewListPage extends StatelessWidget {
           ),
           const SizedBox(height: 20.0),
           ElevatedButton(
-            onPressed: () => _createList(context),
+            onPressed: () => widget._createList(context),
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(double.infinity, kMinInteractiveDimension),
             ), // Pass a function reference
