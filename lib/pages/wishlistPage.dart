@@ -1,16 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:wishlist_app/pages/addItemPage.dart';
 import 'package:wishlist_app/models/wishlist.dart';
 
 class WishlistPage extends StatelessWidget {
   final Wishlist wishlist;
 
-  const WishlistPage({super.key, required this.wishlist});
+  const WishlistPage({Key? key, required this.wishlist}) : super(key: key);
+
+  void _addNewItem(BuildContext context) async {
+    final result = await Navigator.push(context, MaterialPageRoute(builder: (context) => AddItemPage()));
+    if (result != null) {
+      // Process the item data returned from the AddItemPage
+      String itemName = result['itemName'];
+      // Process other item details
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(wishlist.title),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () => _addNewItem(context), // Call the method to add a new item
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

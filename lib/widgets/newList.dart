@@ -29,12 +29,22 @@ class _NewListPageState extends State<NewListPage> {
           SizedBox(height: 10.0),
           TextFormField(
             controller: _titleController,
-            decoration: InputDecoration(labelText: 'List name'),
+            decoration: InputDecoration(
+              labelText: 'List name',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+            ),
           ),
           SizedBox(height: 20.0),
           TextFormField(
             controller: _descriptionController,
-            decoration: InputDecoration(labelText: 'List description'),
+            decoration: InputDecoration(
+              labelText: 'List description',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+            ),
             onEditingComplete: () {
               // Dismiss the keyboard when the user taps "Done"
               FocusScope.of(context).requestFocus(FocusNode());
